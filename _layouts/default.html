@@ -15,6 +15,7 @@
         <![endif]-->
 
         <link rel="stylesheet" media="screen" href="/stylesheets/styles.css" type="text/css" />
+        <link rel="stylesheet" media="screen" href="/stylesheets/global.css" type="text/css" />
         {% if site.feedburner %}
         <link href="http://feeds.feedburner.com/{{ site.feedburner.id }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml" />
         {% endif %}
@@ -29,56 +30,49 @@
              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
              })();
-</script>
-{% endif %}
-  </head>
-  <body>
+         </script>
+         {% endif %}
+     </head>
+     <body>
 
-      <div class="navbar navbar-fixed-top">
-          <div class="navbar-inner">
-              <nav class="container">
-              <ul class="nav">
-                  <li><a href="/">Home</a></li>
-                  <li><a href="/about.html">About</a></li>
-              </ul>
-              <form method="get" action="http://www.google.com/search" class="navbar-search pull-right">
-                  <input type="text" name="q" class="span2 search-query" placeholder="Search" maxlength="255" value="">
-                  <input name="sitesearch" type="hidden" value="{{ site.domain }}">
-              </form>
-              </nav>
-          </div>
-      </div>
+         <div class="container">
 
-      <div class="container">
+             <header class="page-header">
+                 <h1>{{ site.title }}</h1>
+                 <p class="lead">{{ site.description }}</p>
+                 <ul class="nav nav-tabs">
+                     {% for node in site.pages %}
+                     {% if page.url == node.url %}
+                     <li class="active">
+                     {% else %}
+                     <li>
+                     {% endif %}
+                         <a href="{{node.url}}">{{node.title}}</a>
+                     </li>
+                     {% endfor %}
+                 </ul>
+             </header>
 
-          <div class="content">
-              <header class="page-header">
-              <h1>{{ site.title }}</h1>
-              </header>
-              <div class="row">
-                  <div id="content" class="span9">
-                      {{ content }}
-                  </div>
-                  <nav class="span3">
-                  <h3>Recent Posts</h3>
-                  <div id="posts">
-                      {% for post in site.posts limit:10%}
-                      <p><a href="{{ post.url }}">{{ post.title }}</a></p>
-                      {% endfor %}
-                  </div>
-                  </nav>
-              </div>
-          </div>
-
-          <footer>
-          <p>powered by <a href="https://github.com/mojombo/jekyll">jekyll</a></p>
-          </footer>
-
-      </div> 
+             <div class="content">
+                 <div class="row">
+                     <div id="content" class="span9">
+                         {{ content }}
+                     </div>
+                     <nav class="span3">
+                     <h3>Recent Posts</h3>
+                     <div id="posts">
+                         {% for post in site.posts limit:10%}
+                         <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+                         {% endfor %}
+                     </div>
+                     </nav>
+                 </div>
+             </div>
+         </div> 
 
 
-      {% if site.github %}
-      <a href="http://github.com/{{ site.github.username }}"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
-      {% endif %}
-  </body>
-</html>
+         {% if site.github %}
+         <a href="http://github.com/{{ site.github.username }}"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+         {% endif %}
+     </body>
+ </html>

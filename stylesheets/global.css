@@ -1,0 +1,19 @@
+html, body {
+    background-color: #AFCCFF;
+    padding: 0;
+}
+
+.page-header {
+    background-image: url('../images/banner.png');
+    border-style: none;
+    margin: 0;
+    padding: 30px 10px 0 10px;
+}
+
+.page-header .lead {
+    font-size: 12px;
+}
+
+.page-header .nav {
+    margin: 50px 0 0 0;;
+}
