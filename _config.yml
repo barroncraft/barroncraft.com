@@ -1,8 +1,8 @@
 # standard jekyll configuration
 
-permalink: date
+permalink: pretty
 pygments: true
-exclude: ['Rakefile', 'README.md']
+exclude: ['Rakefile', 'README']
 markdown: rdiscount
 
 # configuration required for some pages

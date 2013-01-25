@@ -41,7 +41,14 @@
                  <h1>{{ site.title }}</h1>
                  <p class="lead">{{ site.description }}</p>
                  <ul class="nav nav-tabs">
-                     {% for node in site.pages %}
+                     {% if page.url == "/index.html"  %}
+                     <li class="active">
+                     {% else %}
+                     <li>
+                     {% endif %}
+                         <a href="/">Home</a>
+                     </li>
+                     {% for node in site.navigation %}
                      {% if page.url == node.url %}
                      <li class="active">
                      {% else %}
