@@ -61,19 +61,7 @@
              </header>
 
              <div class="content">
-                 <div class="row">
-                     <div id="content" class="span9">
-                         {{ content }}
-                     </div>
-                     <nav class="span3">
-                     <h3>Recent Posts</h3>
-                     <div id="posts">
-                         {% for post in site.posts limit:10%}
-                         <p><a href="{{ post.url }}">{{ post.title }}</a></p>
-                         {% endfor %}
-                     </div>
-                     </nav>
-                 </div>
+                 {{ content }}
              </div>
          </div> 
 
