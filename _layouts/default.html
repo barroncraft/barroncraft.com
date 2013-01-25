@@ -41,21 +41,22 @@
                  <h1>{{ site.title }}</h1>
                  <p class="lead">{{ site.description }}</p>
                  <ul class="nav nav-tabs">
-                     {% if page.url == "/index.html"  %}
-                     <li class="active">
-                     {% else %}
-                     <li>
-                     {% endif %}
-                         <a href="/">Home</a>
-                     </li>
                      {% for node in site.navigation %}
-                     {% if page.url == node.url %}
+                     {% if page.url == node.url and node.url == "/" %}
+                     {% assign home_selected = true %}
+                     {% endif %}
+                     {% if page.url contains node.url and node.url != "/" %}
+                     {% assign other_selected = true %}
+                     {% endif %}
+                     {% if home_selected or other_selected %}
                      <li class="active">
                      {% else %}
                      <li>
                      {% endif %}
                          <a href="{{node.url}}">{{node.title}}</a>
                      </li>
+                     {% assign home_selected = false %}
+                     {% assign other_selected = false %}
                      {% endfor %}
                  </ul>
              </header>

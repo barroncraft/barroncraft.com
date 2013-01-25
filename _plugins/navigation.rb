@@ -6,7 +6,7 @@ module Jekyll
         def generate(site)
             sorted = []
             site.pages.each do |page|
-                sorted << page if page.data["navigation"] != nil and page.data["navigation"] != 0
+                sorted << page if page.data["navigation"] != nil
             end
             sorted = sorted.sort{ |a,b| a.data["navigation"] <=> b.data["navigation"] } 
             site.config["navigation"] = sorted
