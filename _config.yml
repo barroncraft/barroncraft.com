@@ -23,5 +23,5 @@ email: nullreff@barroncraft.com
 github:
     username: barroncraft
 
-# disqus:
-#   id: disqusid
+disqus:
+    id: barroncraft 
