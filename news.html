@@ -1,0 +1,25 @@
+---
+layout: default
+title: News
+description: News and updates about Barron Minecraft
+navigation: 1
+permalink: /news/
+---
+
+<div class="row">
+    <div id="content" class="span12">
+        {% for post in site.posts %}
+        <article>
+            <header>
+                <h2>
+                    <a href="{{ post.url }}" rel="bookmark" title="Permanent link to ">{{ post.title }}</a>
+                </h2>
+                <h5><time>{{ post.date | date: '%B' }} {{ post.date | date: '%e' }}, {{ post.date | date: '%Y' }}</time></h5>
+            </header>
+            {{ post.content }}
+        </article>
+        {% endfor %}
+    </div>
+</div>
+
+
