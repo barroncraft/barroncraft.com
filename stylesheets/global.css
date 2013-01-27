@@ -81,3 +81,14 @@ html, body
     text-align: center;
     width: 200px;
 }
+
+dl.spaced dt
+{
+    margin-top: 20px;
+}
+
+dl.spaced dd
+{
+    font-size: 16px;
+
+}
