@@ -1,27 +1,33 @@
 ---
 layout: default
 ---
-<article>
-    <header>
-        <h2>
-            <a href="{{ page.url }}" rel="bookmark" title="Permanent link to ">{{ page.title }}</a>
-        </h2>
-        <h5><time>{{ page.date | date: '%B' }} {{ page.date | date: '%e' }}, {{ page.date | date: '%Y' }}</time></h5>
-    </header>
+<div class="row">
+    <article class="span9">
+        <header>
+            <h2>
+                <a href="{{ page.url }}" rel="bookmark" title="Permanent link to ">{{ page.title }}</a>
+            </h2>
+            <h5><time>{{ page.date | date: '%B' }} {{ page.date | date: '%e' }}, {{ page.date | date: '%Y' }}</time></h5>
+        </header>
 
-    {{ content }} 
+        {{ content }} 
+    </article>
 
-    <nav id="related">
-        <h3>Related Posts</h3>
-        <ul class="posts">
-            {% for post in site.related_posts limit:5 %}
-            <li><span>{{ post.date | date_to_string }}</span> - <a href="{{ post.url }}">{{ post.title }}</a></li>
-            {% endfor %}
-        </ul>
-    </nav>
+    <div class="span3">
+        <nav id="related" class="well">
+            <h3>Related Posts</h3>
+            <ul class="posts">
+                {% for post in site.related_posts limit:5 %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</div>
 
+<div class="row">
     {% if site.disqus %}
-    <div id="comments">
+    <div id="comments" class="span12">
         <h2>Comments</h2>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
@@ -35,4 +41,4 @@ layout: default
     <noscript>Please enable JavaScript to view <a href="http://disqus.com/?ref_noscript={{ site.disqus.id }}">comments</a></noscript>
     </div>
     {% endif %}
-</article>
+</div>
