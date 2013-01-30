@@ -21,7 +21,7 @@ end
 
 desc 'Build and deploy'
 task :deploy => :build do
-    sh 'rsync -rtzh --progress --delete _site/ username@servername:/var/www/websitename/'
+    sh 'rsync -rtzh --progress --delete _site/ webfaction:~/webapps/barroncraft/'
 end
 
 desc 'Check links for site already running on localhost:4000'
