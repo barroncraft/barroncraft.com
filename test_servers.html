@@ -1,0 +1,59 @@
+---
+layout: default
+title: Development & Test Servers
+description: Testing servers hosted by Barron Minecraft
+permalink: /servers/test/
+servers:
+    - address: test.barroncraft.com
+      map: Minecraft Dota
+      version: 1.4.6
+      slots: 16
+      status: Online
+    - address: build.barroncraft.com
+      map: Many
+      version: 1.4.6
+      slots: 16
+      status: Whitelisted
+    - address: next.barroncraft.com
+      map: Minecraft Dota
+      version: 13w04a
+      slots: 16
+      status: Whitelisted
+---
+
+<h1>{{ page.title}}</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>Map</th>
+            <th>Version</th>
+            <th>Slots</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for server in page.servers %}
+        <tr>
+            <td>{{ server.address }}</td>
+            <td>{{ server.map }}</td>
+            <td>{{ server.version }}</td>
+            <td>{{ server.slots }}</td>
+            {% case server.status %}
+            {% when 'Online' %}
+            <td><span class="label label-success">Online</span></td>
+            {% when 'Offline' %}
+            <td><span class="label label-important">Offline</span></td>
+            {% when 'Whitelisted' %}
+            <td><span class="label label-info">Whitelisted</span></td>
+            {% when 'Maintenence' %}
+            <td><span class="label label-warning">Maintenence</span></td>
+            {% when 'Deactivated' %}
+            <td><span class="label label-inverse">Deactivated</span></td>
+            {% else %}
+            <td><span class="label">Unknown</span></td>
+            {% endcase %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
