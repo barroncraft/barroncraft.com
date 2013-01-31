@@ -64,7 +64,19 @@
              <div class="content">
                  {{ content }}
              </div>
+             <footer>
+                <ul class="inline pull-left">
+                    <li><a href="/about/terms/">Terms of Service</a></li>
+                    <li><a href="mailto:contact@barroncraft.com">Contact</a></li>
+                    <li><a href="mailto:report@barroncraft.com">Report Player</a></li>
+                </ul>
+                <p class="pull-right">
+                    &copy; 2011-{{ site.time | date: "%Y" }} Barron Minecraft
+                </p>
+                <br class="clear"/>
+             </footer>
          </div> 
+
 
 
          {% if site.github %}

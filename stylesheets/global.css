@@ -97,3 +97,25 @@ dl.spaced dd
 {
     margin-top: 20px;
 }
+
+footer
+{
+    margin: 5px 0;
+}
+
+ul.inline 
+{
+    margin: 0;
+    list-style: none;
+}
+
+ul.inline li
+{
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.clear
+{
+    clear: both;
+}
