@@ -34,7 +34,7 @@ types:
         - name: Report Bugs
           link: "https://github.com/barroncraft/barron-minecraft-dota/issues/"
     - name: Server Owner
-      image: server_admin.png
+      image: server_owner.png
       description: Check out our configuration and give feedback on what you think could be improved.  Also try running it on your own server.
       buttons: 
         - name: View Config
@@ -54,7 +54,7 @@ types:
     {% for type in page.types %}
     <div class="span3">
         <div class="thumbnail">
-            <img alt="{{ type.name }}" style="width: 300px; height: 200px; " src="images/{{ type.image }}">
+            <img alt="{{ type.name }}" src="/images/roles/{{ type.image }}">
             <div class="caption">
                 <h3>{{ type.name }}</h3>
                 <p>{{ type.description }}</p>
