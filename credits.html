@@ -4,6 +4,68 @@ title: Credits
 description: All the people and organizations that make Barron Minecraft possible
 navigation: 6
 permalink: /credits/
+groups:
+    - name: Server Staff
+      info: Adminstrators and developers who keep all the servers up and running.
+      credits:
+        - name: NullReff
+          link: mailto:nullreff@barroncraft.com
+    - name: Moderators
+      info: Ensuring the servers are friendly and fun to play on.
+    - name: Contributors
+      info: Those who have helped to build or improve the servers in some way.
+      credits:
+        - name: Hypixel
+          logo:
+              image: /images/logos/hypixel.png
+              span: 2
+          link: http://hypixel.net/
+        - name: Damariei
+          logo:
+              image: https://secure.gravatar.com/avatar/4ac67f1d6673c098948bbdbbf5b03f6b?s=120
+              span: 1
+          link: https://github.com/damariei
+        - name: Rhysarkhan
 ---
 
-Hello World
+{% for group in page.groups %}
+<div class="well">
+    <h2>{{ group.name }}</h2>
+    <p class="lead">{{ group.info }}</p>
+    {% if group.credits %}
+    <div class="group">
+        {% for credit in group.credits %}
+        <div class="credit">
+            {% if credit.logo %}
+            <div class="logo{{ credit.logo.span}} avatar">
+            {% else %}
+            <div class="avatar">
+            {% endif %}
+                {% if credit.link %}
+                <a href="{{ credit.link }}">
+                {% endif %}
+                    {% if credit.logo %}
+                    <img src="{{ credit.logo.image }}" alt="{{ credit.name }}" />
+                    {% else %}
+                    <img src="https://minotar.net/avatar/{{ credit.name }}/120" alt="{{ credit.name }}" />
+                    {% endif %}
+                {% if credit.link %}
+                </a>
+                {% endif %}
+            </div>
+            <div class="info">
+                {{ credit.name }}
+            </div>
+        </div>
+        {% endfor %}
+        <br class="clear"/>
+    </div>
+    {% else %}
+    <p class="unfilled center">
+        No one yet...
+    </p>
+    {% endif %}
+</div>
+{% endfor %}
+<hr/>
+<p class="center">Did we miss you?  Send an email to <a href="mailto:{{ site.email }}">{{ site.email }}</a> to be added.</p>

@@ -119,3 +119,51 @@ ul.inline li
 {
     clear: both;
 }
+
+.group .credit
+{
+    float: left;
+    margin: 4px;
+}
+
+.group .credit .avatar
+{
+    height: 120px;
+}
+
+.group .credit .info
+{
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.unfilled
+{
+    padding: 30px 0 70px 0;
+}
+
+.center
+{
+    text-align: center;
+}
+
+.credit .logo1
+{
+    width: 120px;
+}
+
+.credit .logo2
+{
+    width: 248px;
+}
+
+.credit .logo3
+{
+    width: 372px;
+}
+
+.credit .logo4
+{
+    width: 496px;
+}
