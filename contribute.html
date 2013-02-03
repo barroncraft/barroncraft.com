@@ -45,8 +45,10 @@ types:
       image: donor.png
       description: Hosting servers take a lot of time and money.  If you want help offset some of our costs, it would be greatly appreciated.
       buttons: 
-        - name: Donate
-          link: "/contribute/donate/"
+        - name: PayPal
+          link: javascript:submitPayPal()
+        - name: Flattr 
+          link: http://flattr.com/thing/684486/Barron-Minecraft
 ---
 
 <h2>I am a...</h2>
@@ -71,3 +73,17 @@ types:
 </div>
 <hr/>
 <p class="pagination-centered">Be sure to check back periodically as we will be adding more ways to contribute.</p>
+
+<!-- Paypal donation form -->
+<div style="display: none;">
+    <form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="U563AUKEMRA96">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+    <script type="text/javascript">
+        function submitPayPal() {
+            document.getElementById("paypal").submit();
+        }
+    </script>
+</div>
