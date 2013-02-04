@@ -4,16 +4,19 @@ title: Servers
 description: Servers hosted by Barron Minecraft
 navigation: 2
 permalink: /servers/
+servers:
+    - name: dota.barroncraft.com
+      style: "02"
+    - name: dota2.barroncraft.com
+      style: "01"
+    - name: dota3.barroncraft.com
+      style: "07"
 ---
 
-<div style="text-align: center;">
-    <a href="http://mcservers.org/detail/dota.barroncraft.com" title="dota.barroncraft.com">
-        <img src="http://mcservers.org/images/dota.barroncraft.com/600x100_02.jpg" alt="dota.barroncraft.com" />
+<div class="center">
+    {% for server in page.servers %}
+    <a href="http://mcservers.org/detail/{{ server.name }}" title="{{ server.name }}">
+        <img src="http://mcservers.org/images/{{ server.name }}/600x100_{{ server.style }}.jpg" alt="{{ server.name }}" />
     </a>
-    <a href="http://mcservers.org/detail/dota2.barroncraft.com" title="dota2.barroncraft.com">
-        <img src="http://mcservers.org/images/dota2.barroncraft.com/600x100_01.jpg" alt="dota2.barroncraft.com" />
-    </a>
-    <a href="http://mcservers.org/detail/dota3.barroncraft.com" title="dota3.barroncraft.com">
-        <img src="http://mcservers.org/images/dota3.barroncraft.com/600x100_07.jpg" alt="dota3.barroncraft.com" />
-    </a>
+    {% endfor %}
 </div>
