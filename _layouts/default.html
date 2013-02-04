@@ -5,8 +5,14 @@
         <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
         {% if page.description %}
         <meta name="description" content="{{ page.description }}" />
+        {% else %}
+        <meta name="description" content="{{ site.description }}" />
         {% endif %}
+        {% if page.author %}
+        <meta name="author" content="{{ page.author }}">
+        {% else %}
         <meta name="author" content="{{ site.author }}">
+        {% endif %}
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
 
@@ -17,27 +23,9 @@
 
         <link rel="stylesheet" media="screen" href="/stylesheets/styles.css" type="text/css" />
         <link rel="stylesheet" media="screen" href="/stylesheets/global.css" type="text/css" />
-        {% if site.feedburner %}
-        <link href="http://feeds.feedburner.com/{{ site.feedburner.id }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml" />
-        {% endif %}
-        {% if site.google_analytics %}
-        <!-- google analytics async -->
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', '{{ site.google_analytics.account }}']);
-            _gaq.push(['_trackPageview']);
-            (function() {
-             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-             })();
-         </script>
-         {% endif %}
      </head>
      <body>
-
          <div class="container">
-
              <header class="page-header">
                 <h1>Barron Minecraft</h1>
                  <ul class="nav nav-tabs">
@@ -77,10 +65,8 @@
              </footer>
          </div> 
 
-
-
          {% if site.github %}
-         <a href="http://github.com/{{ site.github.username }}"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+         <a href="http://github.com/{{ site.github }}"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
          {% endif %}
      </body>
  </html>

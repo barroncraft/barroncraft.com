@@ -13,15 +13,7 @@ description: Epic Minecraft games built by the community, for the community
 author: Nullreff
 email: contact@barroncraft.com
 
+# 3rd party apps integration
 
-# feedburner:
-#   id: feedburnerid
-
-# google_analytics:
-#   account: UA-XXXXX-X
-
-github:
-    username: barroncraft
-
-disqus:
-    id: barroncraft 
+github: barroncraft
+disqus: barroncraft 
