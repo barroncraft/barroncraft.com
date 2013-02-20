@@ -4,6 +4,7 @@ title: Credits
 description: All the people and organizations that make Barron Minecraft possible
 navigation: 6
 permalink: /credits/
+avatars: https://minotar.net/avatar
 groups:
     - name: Staff
       info: Adminstrators and developers who keep all the servers up and running.
@@ -49,7 +50,7 @@ groups:
                     {% if credit.logo %}
                     <img src="{{ credit.logo.image }}" alt="{{ credit.name }}" />
                     {% else %}
-                    <img src="http://avatar.barroncraft.com/{{ credit.name }}/120" alt="{{ credit.name }}" />
+                    <img src="{{ page.avatars }}/{{ credit.name }}/120" alt="{{ credit.name }}" />
                     {% endif %}
                 {% if credit.link %}
                 </a>
