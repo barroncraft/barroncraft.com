@@ -24,6 +24,11 @@ task :deploy => :build do
     sh 'rsync -rtzh --progress --delete _site/ webfaction:~/webapps/barroncraft_com/'
 end
 
+desc 'Create and edit a new post'
+task :post, :post_name do |t, args|
+    create_post(args[:post_name])
+end
+
 desc 'Check links for site already running on localhost:4000'
 task :check_links do
     begin
@@ -65,4 +70,21 @@ end
 def less(opts = '')
     Dir::mkdir('stylesheets') unless File.directory?('stylesheets')
     sh 'lessc -x _less/styles.less > stylesheets/styles.css'
+end
+
+def create_post(title)
+    date = Time.now.strftime('%Y-%m-%d')
+    fileName = "_posts/#{date}-#{title.downcase.gsub(' ', '-')}.md"
+    File.open(fileName, 'w') do |file|
+        file.write(%Q{---
+layout: post
+title: #{title}
+tags: []
+last_updated: #{date}
+---
+
+
+})
+    end
+    system("vim #{fileName}")
 end
