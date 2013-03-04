@@ -8,18 +8,29 @@ permalink: /news/
 
 <div class="row">
     <div id="content" class="span12">
-        {% for post in site.posts %}
-        <article>
-            <header>
-                <h2>
-                    <a href="{{ post.url }}" rel="bookmark" title="Permanent link to ">{{ post.title }}</a>
-                </h2>
-                <h5><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%B %e, %Y' }}</time></h5>
-            </header>
-            {{ post.content }}
-        </article>
-        <hr/>
-        {% endfor %}
+        <div class="pull-left">
+            <h2>Latest News</h2>
+        </div>
+        <div class="pull-right">
+            <a href="/rss.xml">
+                <img src="/images/rss.png" alt="Barron Minecraft RSS feed" />
+            </a>
+        </div>
+        <br class="clear"/>
+        <div>
+            {% for post in site.posts %}
+            <hr/>
+            <article>
+                <header>
+                    <h3>
+                        <a href="{{ post.url }}" rel="bookmark" title="Permanent link to ">{{ post.title }}</a>
+                    </h3>
+                    <h5><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%B %e, %Y' }}</time></h5>
+                </header>
+                {{ post.content }}
+            </article>
+            {% endfor %}
+        </div>
     </div>
 </div>
 
