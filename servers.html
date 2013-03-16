@@ -5,18 +5,32 @@ description: Servers hosted by Barron Minecraft
 navigation: 2
 permalink: /servers/
 servers:
-    - name: dota.barroncraft.com
+    - name: dota 
+      url: dota.barroncraft.com
       style: "02"
-    - name: dota2.barroncraft.com
+    - name: dota2
+      url: dota2.barroncraft.com
       style: "01"
-    - name: dota3.barroncraft.com
+    - name: dota3
+      url: dota3.barroncraft.com
       style: "07"
 ---
 
 <div class="center">
     {% for server in page.servers %}
-    <a href="http://mcservers.org/detail/{{ server.name }}" title="{{ server.name }}">
-        <img src="http://mcservers.org/images/{{ server.name }}/600x100_{{ server.style }}.jpg" alt="{{ server.name }}" />
-    </a>
+        <a href="http://mcservers.org/detail/{{ server.url }}" title="{{ server.url }}">
+            <h2>{{ server.url }}</h2>
+        </a>
+        <div id="{{ server.name }}">
+            <span class="playerCount"></span> / <span class="maxPlayers"></span>
+        </div>
     {% endfor %}
 </div>
+<script type="text/javascript">
+    {% for server in page.servers %}
+    $.getJSON("http://{{ server.url }}:25566/", function(data) {
+        $("#{{ server.name }} span.playerCount").text(data.playerCount);
+        $("#{{ server.name }} span.maxPlayers").text(data.maxPlayers);
+        });
+    {% endfor %}
+</script>
