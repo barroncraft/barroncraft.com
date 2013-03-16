@@ -167,3 +167,8 @@ ul.inline li
 {
     width: 496px;
 }
+
+.red-players, .blue-players
+{
+    font-size: 16px;
+}

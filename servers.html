@@ -16,13 +16,23 @@ servers:
       style: "07"
 ---
 
-<div class="center">
+<div class="row">
     {% for server in page.servers %}
-        <a href="http://mcservers.org/detail/{{ server.url }}" title="{{ server.url }}">
+        <div id="{{ server.name }}" class="span4 center">
             <h2>{{ server.url }}</h2>
-        </a>
-        <div id="{{ server.name }}">
-            <span class="playerCount"></span> / <span class="maxPlayers"></span>
+            <p class="lead">
+                <span class="playerCount"></span> / <span class="maxPlayers"></span>
+            </p>
+            <div class="row-fluid">
+                <div class="span6">
+                    <h3 style="color: red">Red</h4>
+                    <ul class="unstyled red-players"></ul>
+                </div>
+                <div class="span6">
+                    <h3 style="color: blue">Blue</h4>
+                    <ul class="unstyled blue-players"></ul>
+                </div>
+            </div>
         </div>
     {% endfor %}
 </div>
@@ -31,6 +41,18 @@ servers:
     $.getJSON("http://{{ server.url }}:25566/", function(data) {
         $("#{{ server.name }} span.playerCount").text(data.playerCount);
         $("#{{ server.name }} span.maxPlayers").text(data.maxPlayers);
-        });
+        var redPlayers = ""
+        for (var i in data.clans.red) {
+            name = data.clans.red[i];
+            redPlayers += '<li><img src="https://minotar.net/avatar/' + name + '/14"/> ' + name + '</li>';
+        }
+        $("#{{ server.name }} .red-players").html(redPlayers);
+        var bluePlayers = ""
+        for (var i in data.clans.blue) {
+            name = data.clans.blue[i];
+            bluePlayers += '<li><img src="https://minotar.net/avatar/' + name + '/14"/> ' + name + '</li>';
+        }
+        $("#{{ server.name }} .blue-players").html(bluePlayers);
+    });
     {% endfor %}
 </script>
