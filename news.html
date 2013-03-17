@@ -23,15 +23,24 @@ permalink: /news/
             <article>
                 <header>
                     <h3>
-                        <a href="{{ post.url }}" rel="bookmark" title="Permanent link to ">{{ post.title }}</a>
+                        <a href="{{ post.url }}" rel="bookmark" title="Permanent link to {{ post.title }}">{{ post.title }}</a>
                     </h3>
                     <h5><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%B %e, %Y' }}</time></h5>
                 </header>
                 {{ post.content }}
+                <a href="{{ post.url }}#disqus_thread"></a>
             </article>
             {% endfor %}
         </div>
     </div>
 </div>
 
-
+<script type="text/javascript">
+    var disqus_shortname = '{{ site.disqus }}';
+    (function () {
+         var s = document.createElement('script'); s.async = true;
+         s.type = 'text/javascript';
+         s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+     }());
+</script>
