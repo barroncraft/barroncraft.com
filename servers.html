@@ -4,25 +4,25 @@ title: Servers
 description: Servers hosted by Barron Minecraft
 navigation: 2
 permalink: /servers/
+mapsUrl: https://maps.google.com/?q=
 servers:
     - name: dota 
       url: dota.barroncraft.com
-      style: "02"
+      location: Fremont, California
     - name: dota2
       url: dota2.barroncraft.com
-      style: "01"
+      location: Newark, New Jersey
     - name: dota3
       url: dota3.barroncraft.com
-      style: "07"
+      location: London, England
 ---
 
 <div class="row">
     {% for server in page.servers %}
         <div id="{{ server.name }}" class="server span4 center">
             <h2>{{ server.url }}</h2>
-            <p class="lead">
-                <span class="playerCount"></span> / <span class="maxPlayers"></span>
-            </p>
+            <p><a href="{{ page.mapsUrl }}{{ server.location }}">{{ server.location }}</a></p>
+            <p class="lead"><span class="playerCount"></span> / <span class="maxPlayers"></span></p>
             <div class="row-fluid">
                 <div class="span6">
                     <h3 style="color: red">Red</h4>
