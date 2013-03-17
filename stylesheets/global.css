@@ -170,5 +170,10 @@ ul.inline li
 
 .red-players, .blue-players
 {
-    font-size: 16px;
+    font-size: 14px;
+}
+
+.server
+{
+    height: 300px;
 }
