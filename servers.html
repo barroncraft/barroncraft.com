@@ -44,13 +44,13 @@ servers:
         var redPlayers = ""
         for (var i in data.clans.red) {
             name = data.clans.red[i];
-            redPlayers += '<li><img src="https://minotar.net/avatar/' + name + '/14"/> ' + name + '</li>';
+            redPlayers += '<li>' + name + '</li>';
         }
         $("#{{ server.name }} .red-players").html(redPlayers);
         var bluePlayers = ""
         for (var i in data.clans.blue) {
             name = data.clans.blue[i];
-            bluePlayers += '<li><img src="https://minotar.net/avatar/' + name + '/14"/> ' + name + '</li>';
+            bluePlayers += '<li>' + name + '</li>';
         }
         $("#{{ server.name }} .blue-players").html(bluePlayers);
     });
