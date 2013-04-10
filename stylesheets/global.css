@@ -177,3 +177,8 @@ ul.inline li
 {
     height: 300px;
 }
+
+.server .alert
+{
+    margin-right: 19px;
+}
