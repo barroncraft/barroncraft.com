@@ -42,5 +42,5 @@ Exactly one year ago today, [Hypixel](http://hypixel.net/) (or Theory Movies as 
 * A list of the [top 100 players by kills](/files/2012-2013_player_kills.txt).
 * A list of the [top 100 players by deaths](/files/2012-2013_player_deaths.txt).
 
-Some stats are approximations due to some early logs being in the wrong format.  If you have a stat not listed here that you want to see, [contact](mailto:contact@barroncraft.com) me to have it added.  Stats were compiled using `grep`, `sed`, `sort`, `uniq`, `wc` and `vim`.  The big cloud of chat words was created using [Wordle](http://www.wordle.net/).  I had a lot of fun putting all this together and look forward to another great year for Barron Minecraft.  Have fun playing :D
+Some stats are approximations due to some early logs missing information.  If you have a stat not listed here that you want to see, [contact](mailto:contact@barroncraft.com) me to have it added.  Stats were compiled using `grep`, `sed`, `sort`, `uniq`, `wc` and `vim`.  The big cloud of chat words was created using [Wordle](http://www.wordle.net/).  I had a lot of fun putting all this together and look forward to another great year for Barron Minecraft.  Have fun playing :D
 
