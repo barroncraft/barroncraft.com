@@ -26,9 +26,9 @@ Exactly one year ago today, [Hypixel](http://hypixel.net/) (or Theory Movies as 
 * 275,873 from other players.
 * 31,965 from mobs.
 * 10,094 infiltrating pirate's hideout.
-* 6,684 swimming for the flame sword.
 * 7,793 falling off the map.
 * 7,527 killed by the flame sword.
+* 6,684 swimming for the flame sword.
 * 2,757 chasing people into the enemy base/spawn.
 * 2,492 by suicide.
 * 309 from falling into the void.
