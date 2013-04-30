@@ -34,7 +34,7 @@ servers:
         <div class="row-fluid">
             {{#each teams}}
             <div class="span6">
-                <h3 style="color: {{name}}">{{name}}</h4>
+                <h3 style="color: {{name}}">{{#capitalize}}{{name}}{{/capitalize}}</h4>
                 <ul class="unstyled players">
                     {{#each players}}
                     <li>{{this}}</li>
@@ -49,8 +49,9 @@ servers:
 {% endraw %}
 
 <script type="text/javascript">
-    Handlebars.registerHelper('capitalize', function(item) {
-        return item.charAt(0).toUpperCase() + item.slice(1);
+    Handlebars.registerHelper('capitalize', function(options) {
+        var text = options.fn(this);
+        return text.charAt(0).toUpperCase() + text.slice(1);
     });
 
     var source   = $("#server-template").html();
