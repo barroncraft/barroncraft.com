@@ -4,7 +4,6 @@ title: Servers
 description: Servers hosted by Barron Minecraft
 navigation: 2
 permalink: /servers/
-mapsUrl: https://maps.google.com/?q=
 servers:
     - name: dota 
       url: dota.barroncraft.com
@@ -18,47 +17,59 @@ servers:
 ---
 
 <div class="row">
-    {% for server in page.servers %}
-        <div id="{{ server.name }}" class="server span4 center">
-            <h2>{{ server.url }}</h2>
-            {% if server.message %}
-            <div class="alert">
-                {{ server.message}}
-            </div>
-            {% else %}
-            <p><a href="{{ page.mapsUrl }}{{ server.location }}">{{ server.location }}</a></p>
-            <p class="lead"><span class="playerCount"></span> / <span class="maxPlayers"></span></p>
-            <div class="row-fluid">
-                <div class="span6">
-                    <h3 style="color: red">Red</h4>
-                    <ul class="unstyled red-players"></ul>
-                </div>
-                <div class="span6">
-                    <h3 style="color: blue">Blue</h4>
-                    <ul class="unstyled blue-players"></ul>
-                </div>
-            </div>
-            {% endif %}
-        </div>
-    {% endfor %}
+    <div id="servers"></div>
 </div>
+
+{% raw %}
+<script id="server-template" type="text/x-handlebars-template">
+    <div id="{{name}}" class="server span4 center">
+        <h2>{{url}}</h2>
+        {{#if message}}
+        <div class="alert">
+            {{message}}
+        </div>
+        {{else}}
+        <p><a href="https://maps.google.com/?q={{location}}">{{location}}</a></p>
+        <p class="lead">{{playerCount}} / {{maxPlayers}}</p>
+        <div class="row-fluid">
+            {{#each teams}}
+            <div class="span6">
+                <h3 style="color: {{name}}">{{name}}</h4>
+                <ul class="unstyled players">
+                    {{#each players}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+    </div>
+</script>
+{% endraw %}
+
 <script type="text/javascript">
-    {% for server in page.servers %}
-    $.getJSON("http://{{ server.url }}:25566/", function(data) {
-        $("#{{ server.name }} span.playerCount").text(data.playerCount);
-        $("#{{ server.name }} span.maxPlayers").text(data.maxPlayers);
-        var redPlayers = ""
-        for (var i in data.clans.red) {
-            name = data.clans.red[i];
-            redPlayers += '<li>' + name + '</li>';
-        }
-        $("#{{ server.name }} .red-players").html(redPlayers);
-        var bluePlayers = ""
-        for (var i in data.clans.blue) {
-            name = data.clans.blue[i];
-            bluePlayers += '<li>' + name + '</li>';
-        }
-        $("#{{ server.name }} .blue-players").html(bluePlayers);
+    Handlebars.registerHelper('capitalize', function(item) {
+        return item.charAt(0).toUpperCase() + item.slice(1);
     });
+
+    var source   = $("#server-template").html();
+    var template = Handlebars.compile(source);
+    var servers = [
+    {% for server in page.servers %}
+        {
+            name: "{{server.name}}",
+            url: "{{server.url}}",
+            location: "{{server.location}}"
+        },
     {% endfor %}
+    ];
+
+    $.each(servers, function(i, server) {
+        $.getJSON("http://" + server.url + ":25566/", function(data) {
+            $.extend(data, server); // Combine properties
+            var content = template(data);
+            $("#servers").append(content);
+        });
+    });
 </script>
