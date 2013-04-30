@@ -175,10 +175,28 @@ ul.inline li
 
 .server
 {
-    height: 300px;
+    padding: 0 0 0 20px;
 }
 
 .server .alert
 {
     margin-right: 19px;
+}
+
+.server h2
+{
+    text-align: center;
+}
+
+.player-wait
+{
+    width: 110px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 8px 14px;
+}
+
+.team
+{
+    margin: 0 20px;
 }
