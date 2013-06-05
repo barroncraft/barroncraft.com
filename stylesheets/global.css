@@ -131,6 +131,11 @@ ul.inline li
     height: 120px;
 }
 
+.group .credit .avatar a
+{
+    display: block;
+}
+
 .group .credit .info
 {
     text-align: center;

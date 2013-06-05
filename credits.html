@@ -11,11 +11,16 @@ groups:
       credits:
         - name: NullReff
           link: mailto:nullreff@barroncraft.com
+          role: "Founder, Administrator"
         - name: Pyrofiredelta
           link: mailto:pyrofiredelta@barroncraft.com
+          role: "Builder, Moderator"
         - name: bluefishnair
           link: mailto:bluefishnair@barroncraft.com
+          role: Moderator
         - name: abounds_abs
+          link: "#"
+          role: Moderator
     - name: Contributors
       info: Those who have helped to build or improve the servers in some way.
       credits:
@@ -48,12 +53,16 @@ groups:
         {% for credit in group.credits %}
         <div class="credit">
             {% if credit.logo %}
-            <div class="logo{{ credit.logo.span}} avatar">
+            <div class="logo{{ credit.logo.span }} avatar">
             {% else %}
             <div class="avatar">
             {% endif %}
                 {% if credit.link %}
+                {% if credit.role %}
+                <a href="{{ credit.link }}" data-toggle="tooltip" title="{{ credit.role }}">
+                {% else %}
                 <a href="{{ credit.link }}">
+                {% endif %}
                 {% endif %}
                     {% if credit.logo %}
                     <img src="{{ credit.logo.image }}" alt="{{ credit.name }}" />
@@ -80,3 +89,11 @@ groups:
 {% endfor %}
 <hr/>
 <p class="center">Did we miss you?  Send an email to <a href="mailto:{{ site.email }}">{{ site.email }}</a> to be added.</p>
+
+<script type="text/javascript">
+    $('.avatar').tooltip({
+        trigger: 'hover',
+        selector: 'a[data-toggle=tooltip]',
+        placement: 'top'
+    });
+</script>
