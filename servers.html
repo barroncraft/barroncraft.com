@@ -6,6 +6,7 @@ navigation: 2
 permalink: /servers/
 servers:
     - name: dota 
+      message: "Offline for maintenance, redirecting to dota2.barroncraft.com"
       game: dota
       url: dota.barroncraft.com
       location: Fremont, California
@@ -29,37 +30,42 @@ servers:
    <div class="server span6">
         <h2>{{url}}</h2>
         <img src="/images/{{game}}Banner.png" alt="{{game}}"/>
-        {{#if message}}
-        <div class="alert">
-            {{message}}
-        </div>
-        {{/if}}
         <dl class="dl-horizontal">
             <dt>Location</dt>
             <dd><a href="https://maps.google.com/?q={{location}}">{{location}}</a></dd>
+            {{#unless message}}
             <dt>Players</dt>
             <dd>{{playerCount}} / {{maxPlayers}}</dd>
             <dt>Ping</dt>
             <dd>{{ping}}</dd>
+            {{/unless}}
         </dl>
     </div>
     <div class="span6">
-        {{#each teams}}
-        <div class="pull-left team">
-            <h3 style="color: {{name}}">{{#capitalize}}{{name}}{{/capitalize}}</h4>
-            <ul class="unstyled players">
-                {{#each players}}
-                <li>{{this}}</li>
-                {{/each}}
-            </ul>
-        </div>
-        {{else}}
+        {{#if message}}
         <div>
-            <div class="alert alert-info player-wait">
-                Waiting for players
+            <div class="alert server-message" >
+                {{message}}
             </div>
         </div>
-        {{/each}}
+        {{else}}
+            {{#each teams}}
+            <div class="pull-left team">
+                <h3 style="color: {{name}}">{{#capitalize}}{{name}}{{/capitalize}}</h4>
+                <ul class="unstyled players">
+                    {{#each players}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{else}}
+            <div>
+                <div class="alert alert-info player-wait">
+                    Waiting for players
+                </div>
+            </div>
+            {{/each}}
+        {{/if}}
         <br class="clear"/>
     </div>
 </div>
@@ -80,6 +86,7 @@ servers:
         {
             name: "{{server.name}}",
             game: "{{server.game}}",
+            {% if server.message %}message: "{{ server.message }}",{% endif %}
             url: "{{server.url}}",
             location: "{{server.location}}"
         },
@@ -92,6 +99,9 @@ servers:
             data.ping = new Date().getTime() - startTime;
             $.extend(data, server); // Combine properties
             var content = template(data);
+            $("#servers").append(content);
+        }).fail(function() {
+            var content = template(server);
             $("#servers").append(content);
         });
     });

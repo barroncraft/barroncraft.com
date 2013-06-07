@@ -193,12 +193,21 @@ ul.inline li
     text-align: center;
 }
 
-.player-wait
+.player-wait, .server-message
 {
-    width: 110px;
     margin: 60px auto;
     text-align: center;
     padding: 8px 14px;
+}
+
+.player-wait
+{
+    width: 110px;
+}
+
+.server-message
+{
+    width: 400px;
 }
 
 .team
