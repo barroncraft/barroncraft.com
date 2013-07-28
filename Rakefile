@@ -68,8 +68,8 @@ def jekyll(opts = '')
 end
 
 def less(opts = '')
-    Dir::mkdir('stylesheets') unless File.directory?('stylesheets')
-    sh 'lessc -x _less/styles.less > stylesheets/styles.css'
+    Dir::mkdir('css') unless File.directory?('css')
+    sh 'lessc -x _less/styles.less > css/styles.css'
 end
 
 def create_post(title)
