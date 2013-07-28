@@ -1,0 +1,49 @@
+---
+layout: default
+avatars: https://minotar.net/avatar
+---
+
+{% include about-menu.html %}
+
+<p class="lead text-center">{{ page.info }}</p>
+<div class="group">
+    {% for credit in page.credits %}
+    <div class="credit">
+        {% if credit.logo %}
+        <div class="logo{{ credit.logo.span }} avatar">
+        {% else %}
+        <div class="avatar">
+        {% endif %}
+            {% if credit.link %}
+            {% if credit.role %}
+            <a href="{{ credit.link }}" data-toggle="tooltip" title="{{ credit.role }}">
+            {% else %}
+            <a href="{{ credit.link }}">
+            {% endif %}
+            {% endif %}
+                {% if credit.logo %}
+                <img src="{{ credit.logo.image }}" alt="{{ credit.name }}" />
+                {% else %}
+                <img src="{{ page.avatars }}/{{ credit.name }}/120" alt="{{ credit.name }}" />
+                {% endif %}
+            {% if credit.link %}
+            </a>
+            {% endif %}
+        </div>
+        <div class="info">
+            {{ credit.name }}
+        </div>
+    </div>
+    {% endfor %}
+    <br class="clear"/>
+</div>
+<hr/>
+<p class="center">Did we miss you?  Send an email to <a href="mailto:{{ site.email }}">{{ site.email }}</a> to be added.</p>
+
+<script type="text/javascript">
+    $('.avatar').tooltip({
+        trigger: 'hover',
+        selector: 'a[data-toggle=tooltip]',
+        placement: 'top'
+    });
+</script>

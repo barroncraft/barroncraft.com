@@ -1,10 +1,9 @@
 ---
-layout: default
+layout: people
 title: Credits
-description: All the people and organizations that make Barron Minecraft possible
+description: All the people and organizations that have helped to build or improve the servers in some way.
 permalink: /credits/
-avatars: https://minotar.net/avatar
-info: Those who have helped to build or improve the servers in some way.
+info: All the people and organizations that have helped to build or improve the servers in some way.
 credits:
   - name: Hypixel
     logo:
@@ -25,52 +24,3 @@ credits:
   - name: Rhysarkhan
   - name: nf1999
 ---
-
-<ul class="nav nav-pills">
-    <li><a href="/about/">Goals</a></li>
-    <li class="active"><a href="/about/credits/">Credits</a></li>
-    <li><a href="/about/staff/">Staff</a></li>
-</ul>
-
-<p class="lead">{{ page.info }}</p>
-<div class="group">
-    {% for credit in page.credits %}
-    <div class="credit">
-        {% if credit.logo %}
-        <div class="logo{{ credit.logo.span }} avatar">
-        {% else %}
-        <div class="avatar">
-        {% endif %}
-            {% if credit.link %}
-            {% if credit.role %}
-            <a href="{{ credit.link }}" data-toggle="tooltip" title="{{ credit.role }}">
-            {% else %}
-            <a href="{{ credit.link }}">
-            {% endif %}
-            {% endif %}
-                {% if credit.logo %}
-                <img src="{{ credit.logo.image }}" alt="{{ credit.name }}" />
-                {% else %}
-                <img src="{{ page.avatars }}/{{ credit.name }}/120" alt="{{ credit.name }}" />
-                {% endif %}
-            {% if credit.link %}
-            </a>
-            {% endif %}
-        </div>
-        <div class="info">
-            {{ credit.name }}
-        </div>
-    </div>
-    {% endfor %}
-    <br class="clear"/>
-</div>
-<hr/>
-<p class="center">Did we miss you?  Send an email to <a href="mailto:{{ site.email }}">{{ site.email }}</a> to be added.</p>
-
-<script type="text/javascript">
-    $('.avatar').tooltip({
-        trigger: 'hover',
-        selector: 'a[data-toggle=tooltip]',
-        placement: 'top'
-    });
-</script>
