@@ -22,7 +22,7 @@ html, body
 .nav-tabs
 {
     margin: 75px auto 0 auto;
-    width: 600px;
+    width: 500px;
     border-bottom: none;
 }
 
@@ -123,7 +123,7 @@ ul.inline li
 .group .credit
 {
     float: left;
-    margin: 4px;
+    margin: 18px;
 }
 
 .group .credit .avatar
@@ -160,17 +160,12 @@ ul.inline li
 
 .credit .logo2
 {
-    width: 248px;
+    width: 276px;
 }
 
 .credit .logo3
 {
-    width: 372px;
-}
-
-.credit .logo4
-{
-    width: 496px;
+    width: 428px;
 }
 
 .players

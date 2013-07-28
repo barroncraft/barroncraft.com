@@ -1,0 +1,76 @@
+---
+layout: default
+title: Credits
+description: All the people and organizations that make Barron Minecraft possible
+permalink: /credits/
+avatars: https://minotar.net/avatar
+info: Those who have helped to build or improve the servers in some way.
+credits:
+  - name: Hypixel
+    logo:
+        image: /images/logos/hypixel.png
+        span: 2
+    link: http://hypixel.net/
+  - name: Scyntrus
+  - name: Damariei
+    logo:
+        image: https://secure.gravatar.com/avatar/4ac67f1d6673c098948bbdbbf5b03f6b?s=120
+        span: 1
+    link: https://github.com/damariei
+  - name: Newbreed Gaming
+    logo:
+        image: /images/logos/newbreed.png
+        span: 2
+    link: http://newbreedgaming.com/
+  - name: Rhysarkhan
+  - name: nf1999
+---
+
+<ul class="nav nav-pills">
+    <li><a href="/about/">Goals</a></li>
+    <li class="active"><a href="/about/credits/">Credits</a></li>
+    <li><a href="/about/staff/">Staff</a></li>
+</ul>
+
+<p class="lead">{{ page.info }}</p>
+<div class="group">
+    {% for credit in page.credits %}
+    <div class="credit">
+        {% if credit.logo %}
+        <div class="logo{{ credit.logo.span }} avatar">
+        {% else %}
+        <div class="avatar">
+        {% endif %}
+            {% if credit.link %}
+            {% if credit.role %}
+            <a href="{{ credit.link }}" data-toggle="tooltip" title="{{ credit.role }}">
+            {% else %}
+            <a href="{{ credit.link }}">
+            {% endif %}
+            {% endif %}
+                {% if credit.logo %}
+                <img src="{{ credit.logo.image }}" alt="{{ credit.name }}" />
+                {% else %}
+                <img src="{{ page.avatars }}/{{ credit.name }}/120" alt="{{ credit.name }}" />
+                {% endif %}
+            {% if credit.link %}
+            </a>
+            {% endif %}
+        </div>
+        <div class="info">
+            {{ credit.name }}
+        </div>
+    </div>
+    {% endfor %}
+    <br class="clear"/>
+</div>
+<hr/>
+<p class="center">Did we miss you?  Send an email to <a href="mailto:{{ site.email }}">{{ site.email }}</a> to be added.</p>
+
+<script type="text/javascript">
+    $('.avatar').tooltip({
+        trigger: 'hover',
+        selector: 'a[data-toggle=tooltip]',
+        placement: 'top'
+    });
+</script>
