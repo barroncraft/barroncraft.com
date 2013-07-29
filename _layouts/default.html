@@ -29,9 +29,9 @@
         <![endif]-->
      </head>
      <body>
-         <div class="container">
-             <header class="page-header">
-                <h1>Barron Minecraft</h1>
+         <div class="header-background">
+             <div class="container">
+                 <header class="page-header">
                  <ul class="nav nav-tabs">
                      {% for node in site.navigation %}
                      {% if page.url == node.url and node.url == "/" %}
@@ -45,13 +45,15 @@
                      {% else %}
                      <li>
                      {% endif %}
-                         <a href="{{node.url}}">{{node.title}}</a>
+                     <a href="{{node.url}}">{{node.title}}</a>
                      </li>
                      {% assign selected = false %}
                      {% endfor %}
                  </ul>
-             </header>
-
+                 </header>
+             </div>
+         </div>
+        <div class="container">
              <div class="content">
                  {{ content }}
              </div>
