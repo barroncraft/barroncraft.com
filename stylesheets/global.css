@@ -216,3 +216,10 @@ ul.inline li
     width: 190px;
     margin: 0 auto;
 }
+
+dl.about dt
+{
+    line-height: 27px;
+    font-size: 18px;
+    font-weight: bold;
+}
