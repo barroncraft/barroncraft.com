@@ -10,7 +10,7 @@ end
 desc 'Build site with Jekyll'
 task :build => :clean do
     less
-    jekyll
+    jekyll('build')
 end
 
 desc 'Start server with --watch'
