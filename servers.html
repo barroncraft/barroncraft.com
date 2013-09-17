@@ -11,13 +11,13 @@ servers:
       location: Fremont, California
 ---
 
-<div class="row">
+<div class="row-fluid">
     <div id="servers"></div>
 </div>
 
 {% raw %}
 <script id="server-template" type="text/x-handlebars-template">
-<div id="{{name}}" class="row">
+<div id="{{name}}" class="row-fluid">
    <div class="server span6">
         <h2>{{url}}</h2>
         <img src="/images/{{game}}Banner.png" alt="{{game}}"/>
