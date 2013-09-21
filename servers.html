@@ -7,6 +7,7 @@ permalink: /servers/
 servers:
     - name: dota 
       game: dota
+      address: 173.255.220.30
       url: dota.barroncraft.com
       location: Fremont, California
 ---
@@ -78,7 +79,7 @@ servers:
             name: "{{server.name}}",
             game: "{{server.game}}",
             {% if server.message %}message: "{{ server.message }}",{% endif %}
-            url: "{{server.url}}",
+            address: "{{server.address}}",
             location: "{{server.location}}"
         },
     {% endfor %}
@@ -86,7 +87,7 @@ servers:
 
     $.each(servers, function(i, server) {
         var startTime = new Date().getTime();
-        $.getJSON("http://" + server.url + ":25566/", function(data) {
+        $.getJSON("http://" + server.address + ":25566/", function(data) {
             data.ping = new Date().getTime() - startTime;
             $.extend(data, server); // Combine properties
             var content = template(data);
