@@ -80,6 +80,7 @@ servers:
             game: "{{server.game}}",
             {% if server.message %}message: "{{ server.message }}",{% endif %}
             address: "{{server.address}}",
+            url: "{{server.url}}",
             location: "{{server.location}}"
         },
     {% endfor %}
