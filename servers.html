@@ -7,6 +7,7 @@ permalink: /servers/
 servers:
     - name: dota 
       game: dota
+      game_link: http://wiki.barroncraft.com/wiki/Minecraft_Dota
       address: 173.255.220.30
       url: dota.barroncraft.com
       location: Fremont, California
@@ -21,7 +22,9 @@ servers:
 <div id="{{name}}" class="row-fluid">
    <div class="server span6">
         <h2>{{url}}</h2>
-        <img src="/images/{{game}}Banner.png" alt="{{game}}"/>
+        <a href="{{game_link}}">
+            <img src="/images/{{game}}Banner.png" alt="{{game}}"/>
+        </a>
         <dl class="dl-horizontal">
             <dt>Location</dt>
             <dd><a href="https://maps.google.com/?q={{location}}">{{location}}</a></dd>
@@ -78,6 +81,7 @@ servers:
         {
             name: "{{server.name}}",
             game: "{{server.game}}",
+            game_link: "{{server.game_link}}",
             {% if server.message %}message: "{{ server.message }}",{% endif %}
             address: "{{server.address}}",
             url: "{{server.url}}",
