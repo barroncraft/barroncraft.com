@@ -33,22 +33,22 @@
              <div class="container">
                  <header class="page-header">
                  <ul class="nav nav-tabs">
-                     {% for node in site.navigation %}
-                     {% if page.url == node.url and node.url == "/" %}
-                     {% assign selected = true %}
-                     {% endif %}
-                     {% if page.url contains node.url and node.url != "/" %}
-                     {% assign selected = true %}
-                     {% endif %}
-                     {% if selected %}
-                     <li class="active">
-                     {% else %}
-                     <li>
-                     {% endif %}
-                     <a href="{{node.url}}">{{node.title}}</a>
+                     <li{% if page.url == "/" %} class="active"{% endif %}>
+                        <a href="/">Home</a>
                      </li>
-                     {% assign selected = false %}
-                     {% endfor %}
+                     <li{% if page.url contains "/news" %} class="active"{% endif %}>
+                        <a href="/news/">News</a>
+                     </li>
+                     <li{% if page.url contains "/servers" %} class="active"{% endif %}>
+                        <a href="/servers/">Servers</a>
+                     </li>
+                     <li><a href="http://forums.barroncraft.com">Forums</a></li>
+                     <li{% if page.url contains "/contribute" %} class="active"{% endif %}>
+                        <a href="/contribute/">Contribute</a>
+                     </li>
+                     <li{% if page.url contains "/about" %} class="active"{% endif %}>
+                        <a href="/about/">About</a>
+                     </li>
                  </ul>
                  </header>
              </div>
