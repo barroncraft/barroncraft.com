@@ -42,7 +42,9 @@
                      <li{% if page.url contains "/servers" %} class="active"{% endif %}>
                         <a href="/servers/">Servers</a>
                      </li>
-                     <li><a href="http://forums.barroncraft.com">Forums</a></li>
+                     <li{% if page.url contains "/forums" %} class="active"{% endif %}>
+                       <a href="/forums/">Forums</a>
+                     </li>
                      <li{% if page.url contains "/contribute" %} class="active"{% endif %}>
                         <a href="/contribute/">Contribute</a>
                      </li>
