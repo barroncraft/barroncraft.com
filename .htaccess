@@ -4,3 +4,19 @@ RewriteEngine On
 # Redirect forums.barroncraft.com
 RewriteCond %{HTTP_HOST} ^forums\.(.*) [NC]
 RewriteRule ^(.*)$ http://%1/forums/ [R=301,L]
+
+# Redirect various barron.nu urls
+RewriteCond %{REQUEST_URI} /(dota|mcdota)
+RewriteCond %{HTTP_HOST} ^barron\.nu$ [NC]
+RewriteRule ^(.*)$ http://wiki.barroncraft.com/wiki/Minecraft_Dota [R=301,L]
+
+RewriteCond %{REQUEST_URI} /tos
+RewriteCond %{HTTP_HOST} ^barron\.nu$ [NC]
+RewriteRule ^(.*)$ http://wiki.barroncraft.com/wiki/Terms_of_Service [R=301,L]
+
+RewriteCond %{REQUEST_URI} /install
+RewriteCond %{HTTP_HOST} ^barron\.nu$ [NC]
+RewriteRule ^(.*)$ https://raw.github.com/barroncraft/barroncraft-puppet/master/bin/install.sh [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^barron\.nu$ [NC]
+RewriteRule ^(.*)$ http://barroncraft.com/ [R=302,L]
